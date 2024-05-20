@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/button';
-import { SignedOut, useAuth } from '@clerk/nextjs';
+import { SignInButton, SignUpButton, SignedOut, useAuth } from '@clerk/nextjs';
 
 const LeftSidebar = () => {
   const { userId } = useAuth();
@@ -48,10 +48,11 @@ const LeftSidebar = () => {
         })}
       </div>
 
-      <SignedOut>
+      <SignedOut >
           <div className="flex flex-col gap-3">
-              <Link href="/sign-in">
-                <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+            
+               <SignInButton mode='modal'>
+               <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
                   <Image 
                     src="/assets/icons/account.svg"
                     alt="login"
@@ -61,11 +62,13 @@ const LeftSidebar = () => {
                   /> 
                   <span className="primary-text-gradient max-lg:hidden">Log In</span>
                 </Button>
-              </Link>
+               </SignInButton>
+             
 
           
-              <Link href="/sign-up">
-                <Button className='small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none'>
+             
+               <SignUpButton mode='modal'>
+               <Button className='small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none'>
                 <Image 
                     src="/assets/icons/sign-up.svg"
                     alt="sign up"
@@ -75,7 +78,8 @@ const LeftSidebar = () => {
                   /> 
                   <span className="max-lg:hidden">Sign up</span>
                 </Button>
-              </Link>
+               </SignUpButton>
+          
           </div>
         </SignedOut>
     </section>
