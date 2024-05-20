@@ -63,7 +63,7 @@ const MobileNav = () => {
       <SheetContent side="left" className="background-light900_dark200 border-none">
       <Link href="/" className="flex items-center gap-1">
         <Image
-          src="/assets/images/site-logo.svg"
+          src="/logo.svg"
           width={23}
           height={23}
           alt="DevFlow"
